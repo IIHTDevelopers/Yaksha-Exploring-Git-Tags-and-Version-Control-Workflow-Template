@@ -44,7 +44,7 @@ public class MainFunctionalTest {
     public void testHotfixBranchCreatedFromMain() throws IOException {
         try {
             // Check if hotfix-payment-gateway branch was created from main
-            String hotfixBranchCreated = MyApp.wasBranchCreatedFromBaseBranch("discount", "hotfix-payment-gateway");
+            String hotfixBranchCreated = MyApp.wasBranchCreatedFromBaseBranch("main", "hotfix-payment-gateway");
 
             // Check if develop branch was created from main
             String developBranchCreated = MyApp.wasBranchCreatedFromBaseBranch("hotfix-payment-gateway", "develop");
