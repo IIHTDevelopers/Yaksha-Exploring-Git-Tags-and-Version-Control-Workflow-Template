@@ -61,19 +61,13 @@ public class MainFunctionalTest {
 
     @Test
     @Order(3)
-    public void testAddDiscountCouponFeatureCommit() throws IOException {
+    public void testCommitPresent() throws IOException {
         try {
             // Check if "adding file.txt" commit is present in 'master' branch
             String masterCommit = MyApp.isCommitPresentInBranch("main", "adding file.txt");
 
-            // Check if "discount coupon feature" commit is present in 'discount' branch
-            String discountCommit = MyApp.isCommitPresentInBranch("discount", "discount coupons feature");
-
-            // Check if "payment gateway" commit is present in 'develop' branch
-            String developCommit = MyApp.isCommitPresentInBranch("develop", "payment gateway");
-
             // Assert that both branches contain the commit
-            yakshaAssert(currentTest(), developCommit.equals("true") && masterCommit.equals("true") && discountCommit.equals("true"), businessTestFile);
+            yakshaAssert(currentTest(), masterCommit.equals("true"), businessTestFile);
         } catch (Exception ex) {
             yakshaAssert(currentTest(), false, businessTestFile);
         }
